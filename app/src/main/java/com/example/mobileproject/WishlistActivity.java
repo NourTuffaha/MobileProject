@@ -15,16 +15,17 @@ import java.util.List;
 
 public class WishlistActivity extends AppCompatActivity {
 
-    private ArrayList<String> cartList = new ArrayList<>();
+    private ArrayList<String> wishlistList = new ArrayList<>();
 
     private TextView bagItemListTextView;
-    private Button checkoutBtn;
+    private Button cartbtn;
+    private Button removeBtn;
 
     private double totalCost = 0.0;
 
     RecyclerView mrecyclerView;
     LinearLayoutManager layoutManager;
-    List<ModelClass> userList;
+    List<ModelClass> watchList;
     Adapter adapter;
     Watch watch = new Watch();
 
@@ -32,31 +33,38 @@ public class WishlistActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+
         initData();
+        initRecyclerView();
         Intent intent = getIntent();
         watch = intent.getParcelableExtra("watch");
 
-
+        wishlistList = new ArrayList<>();
         bagItemListTextView = findViewById(R.id.bagtv);
-        checkoutBtn = findViewById(R.id.checkoutbtn);
+        cartbtn = findViewById(R.id.checkButton);
+        //     removeBtn = findViewById(R.id.removeFromCartImg);
 
+//        File img= null;
+//        Watch watch = new Watch(12, "casio",15.00, "casio", "2021","M",img);
 
-        checkoutBtn.setOnClickListener(new View.OnClickListener() {
+        cartbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-
+                Intent sendingIntent = new Intent(WishlistActivity.this, CartActivity.class);
+                sendingIntent.putExtra("watch", watch);
+                startActivity(sendingIntent);
             }
         });
     }
 
     private void initRecyclerView() {
 
-        mrecyclerView = findViewById(R.id.recyclerview);
+        mrecyclerView=findViewById(R.id.recyclerview);
         layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         mrecyclerView.setLayoutManager(layoutManager);
-        adapter = new Adapter(userList);
+        adapter=new Adapter(watchList);
         mrecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -64,21 +72,13 @@ public class WishlistActivity extends AppCompatActivity {
 
     private void initData() {
 
-        userList = new ArrayList<>();
+        watchList = new ArrayList<>();
+        watchList.add(new ModelClass(R.drawable.gstb4001alarge,watch.getAspect1(),"900",R.drawable.trash));
+        watchList.add(new ModelClass(R.drawable.gstb4001alarge,watch.getAspect1(),"900",R.drawable.trash));
+        watchList.add(new ModelClass(R.drawable.gstb4001alarge,watch.getAspect1(),"900",R.drawable.trash));
 
-//        userList.add(new ModelClass(R.drawable.gi,"Anjali","How are you?","10:45 am","_______________________________________"));
-//
-//        userList.add(new ModelClass(R.drawable.bo,"Brijesh","I am fine","15:08 pm","_______________________________________"));
-//
-//        userList.add(new ModelClass(R.drawable.boy,"Sam","You Know?","1:02 am","_______________________________________"));
-//
-//        userList.add(new ModelClass(R.drawable.girl,"Divya","How are you?","12:55 pm","_______________________________________"));
-//
-//        userList.add(new ModelClass(R.drawable.gi,"Simran","This is Easy","13:50 am","_______________________________________"));
-//
-//        userList.add(new ModelClass(R.drawable.boy,"Karan","I am Don","1:08 am","_______________________________________"));
-//
-//        userList.add(new ModelClass(R.drawable.bo,"Sameer","You Know this?","4:02 am","_______________________________________"));
+
+
 
     }
 }

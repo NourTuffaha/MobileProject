@@ -45,7 +45,10 @@ public class DetailsActivity extends AppCompatActivity {
 //        String image = "R.drawable."+ watch.getImage();
         name.setText(watch.getBrand());
         price.setText(String.valueOf(watch.getCost()));
-        details.setText(watch.getWatch_id());
+        details.setText(watch.getAspect1() + "\n" +
+                watch.getAspect2() + "\n" +
+                watch.getAspect3() + "\n"
+        );
 
         if (watch.getWatch_id() == "ga7004a_large")
             watchImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ga7004a_large));
@@ -69,15 +72,13 @@ public class DetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DetailsActivity.this, CartActivity.class);
-                intent.putExtra("watch", watch);
                 startActivity(intent);
             }
         });
         goToWish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailsActivity.this, WishlistActivity.class);
-                intent.putExtra("watch", watch);
+                Intent intent = new Intent(DetailsActivity.this,WishlistActivity.class);
                 startActivity(intent);
             }
         });
@@ -88,7 +89,7 @@ public class DetailsActivity extends AppCompatActivity {
 
     public void btnAddToBagWatch1(View view) {
 
-        Intent sendingIntent = new Intent(this, PayActivity.class);
+        Intent sendingIntent = new Intent(this, CartActivity.class);
         sendingIntent.putExtra("watch", watch);
         startActivity(sendingIntent);
 
@@ -107,11 +108,10 @@ public class DetailsActivity extends AppCompatActivity {
             //heartImg.setVisibility(View.VISIBLE);
             tester = 1;
             Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
-//            Intent sendingIntent= new Intent(this, wishActivity.class);
-//            sendingIntent.putExtra("Value1", value1);
-//            sendingIntent.putExtra("Value2", value2);
-//            sendingIntent.putExtra("Value3", value3);
-//            startActivity(sendingIntent);
+            Intent sendingIntent = new Intent(this, WishlistActivity.class);
+            sendingIntent.putExtra("watch", watch);
+            startActivity(sendingIntent);
+
 
 
         } else if (tester == 1) {

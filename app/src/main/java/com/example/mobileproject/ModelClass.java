@@ -3,44 +3,48 @@ package com.example.mobileproject;
 public class ModelClass {
 
     private int imageview;
-    private String watchname;
-    private String price;
-    private String quantity;
+    private String cost;
+    private String model;
     //new code
-    private String imageBtn;
+    private int imageBtn;
 
-
-
-    ModelClass(int imageview , String watchname, String price, String quantity, String imageBtn)
-    {
-        this.imageview=imageview;
-        this.watchname=watchname;
-        this.price=price;
-        this.quantity=quantity;
-        this.imageBtn=imageBtn;
+    ModelClass(int imageview, String model, String cost, int imageBtn){
+        this.imageview = imageview;
+        this.model = model;
+        this.cost = cost;
+        this.imageBtn = imageBtn;
     }
+
 
     public int getImageview() {
         return imageview;
     }
 
-    public String getwatchname() {
-        return watchname;
+    public void setImageview(int imageview) {
+        this.imageview = imageview;
     }
 
-    public String getimageBtn()
-    {
+    public String getCost() {
+        return cost;
+    }
+
+    public void setCost(String cost) {
+        this.cost = cost;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public int getImageBtn() {
         return imageBtn;
     }
 
-
-    public String getprice() {
-        return price;
+    public void setImageBtn(int imageBtn) {
+        this.imageBtn = imageBtn;
     }
-
-    public String getquantity() {
-        return quantity;
-    }
-
-
 }

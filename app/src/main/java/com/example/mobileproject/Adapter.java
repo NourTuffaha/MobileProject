@@ -23,7 +23,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_design,parent,false);
         return new ViewHolder(view);
 
@@ -31,15 +31,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull Adapter.ViewHolder holder, int position) {
 
         int resource = userList.get(position).getImageview();
-        String name=userList.get(position).getwatchname();
-        String msg=userList.get(position).getprice();
-        String time=userList.get(position).getquantity();
-        String line=userList.get(position).getimageBtn();
+        String model=userList.get(position).getModel();
+        String cost=userList.get(position).getCost();
+        String line= String.valueOf(userList.get(position).getImageBtn());
 
-        holder.setData(resource,name,msg,time,line);
+        holder.setData(resource,model,cost,line);
     }
 
     @Override
@@ -52,7 +51,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         private ImageView imageView;
         private TextView watchname;
         private TextView price;
-        private TextView quantity;
+        private TextView line;
         private ImageButton imgBtn;
 
 
@@ -63,17 +62,17 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             imageView=itemView.findViewById(R.id.watchImg);
             watchname=itemView.findViewById(R.id.watchName);
             price=itemView.findViewById(R.id.price);
-            quantity=itemView.findViewById(R.id.quantity);
+            line=itemView.findViewById(R.id.line);
             imgBtn=itemView.findViewById(R.id.removeFromCartImg);
 
         }
 
-        public void setData(int resource, String name, String msg, String time,String line) {
+        public void setData(int resource, String model, String cost, String data) {
 
             imageView.setImageResource(resource);
-            watchname.setText(name);
-            price.setText(msg);
-            quantity.setText(time);
+            watchname.setText(model);
+            price.setText(cost);
+            line.setText(data);
             imgBtn.setImageResource(R.drawable.trash);
 
 
