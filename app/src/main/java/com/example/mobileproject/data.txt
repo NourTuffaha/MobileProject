@@ -1,0 +1,5 @@
+GSTB400_1A, Casio, G-Shock, Male, 320.00, 200M Water Resistant, Bluetooth Connectivity, Tough Solar Power
+GA2100_7A, Casio, G-Shock, Male, 99.00, Super LED Light, 200M Water Resistant, Shock Resistant
+GA700_4A, Casio, G-Shock, Male, 99.00, 200M Water Resistant, Shock Resistant, Front-Button Super Illuminator Light
+GA2200M_1A, Casio, G-Shock, Male, 130.00, Carbon Core Guard Case, 200M Water Resistant, Shock Resistant
+GMAS120MF_202, Casio, G-Shock, Male, 130.00, Magnetic Resistant, , 200M Water Resistant
