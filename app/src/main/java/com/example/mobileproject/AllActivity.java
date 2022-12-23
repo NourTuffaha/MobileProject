@@ -14,8 +14,10 @@ public class AllActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all);
+
         Watch[] watchArray = MainActivity.watchArray;
-        ImageView watch1 = findViewById(R.id.watch1);
+
+        ImageView watch1 = findViewById(R.id.watchImage);
         ImageView watch2 = findViewById(R.id.watch2);
         ImageView watch3 = findViewById(R.id.watch3);
         ImageView watch4 = findViewById(R.id.watch4);
@@ -33,23 +35,28 @@ public class AllActivity extends AppCompatActivity {
 
         watch1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(AllActivity.this, MainActivity.class));
-
+                Intent intent = new Intent(AllActivity.this, DetailsActivity.class);
+                intent.putExtra("watch", watchArray[0]);
+                startActivity(intent);
             }
         });     watch2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(AllActivity.this, MainActivity.class));
+                Intent intent = new Intent(AllActivity.this, DetailsActivity.class);
+                intent.putExtra("watch", watchArray[1]);
+                startActivity(intent);
 
             }
         });     watch3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(AllActivity.this, MainActivity.class));
-
+                Intent intent = new Intent(AllActivity.this, DetailsActivity.class);
+                intent.putExtra("watch", watchArray[2]);
+                startActivity(intent);
             }
         });     watch4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(AllActivity.this, MainActivity.class));
-
+                Intent intent = new Intent(AllActivity.this, DetailsActivity.class);
+                intent.putExtra("watch", watchArray[3]);
+                startActivity(intent);
             }
         });
 

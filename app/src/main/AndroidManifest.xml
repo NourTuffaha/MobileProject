@@ -13,10 +13,26 @@
         android:theme="@style/Theme.MobileProject"
         tools:targetApi="31">
         <activity
-            android:name=".AllActivity"
-            android:label="All Watches"
-            android:parentActivityName=".MainActivity"
+            android:name=".PayActivity"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".DetailsActivity"
+            android:exported="false"
+            android:label="Watch Details"
+            android:parentActivityName=".AllActivity">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AllActivity"
+            android:exported="false"
+            android:label="All Watches"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

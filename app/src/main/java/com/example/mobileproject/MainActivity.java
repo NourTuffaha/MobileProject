@@ -44,19 +44,19 @@ public class MainActivity extends AppCompatActivity {
 //            );
 //        }
 
-        Watch watch_1 = new Watch("GMAS120MF_202", "Casio", "G-Shock",
+        Watch watch_1 = new Watch("ga2200m1a_large", "Casio", "G-Shock",
                 "Male", 130.00, "Magnetic Resistant", " " +
                 "", "200M Water Resistant");
 
-        Watch watch_2 = new Watch(" GA2100_7A", "Casio", "G-Shock",
+        Watch watch_2 = new Watch("ga7004_large", "Casio", "G-Shock",
                 "Male", 99.00, "", "Shock Resistant" +
                 "", "200M Water Resistant");
 
-        Watch watch_3 = new Watch("GA700_4A", "Casio", "G-Shock",
+        Watch watch_3 = new Watch("ga21007a", "Casio", "G-Shock",
                 "Male", 99.00, "Water Resistant", " Shock Resistant " +
                 "", "Front-Button Super Illuminator Light");
 
-        Watch watch_4 = new Watch("GA2200M_1A", "Casio", "G-Shock",
+        Watch watch_4 = new Watch("gstb4001alarge", "Casio", "G-Shock",
                 "Male", 130.00, " Carbon Core Guard Case", " Shock Resistant " +
                 "", "200M Water Resistant");
 
@@ -65,10 +65,13 @@ public class MainActivity extends AppCompatActivity {
         watchArray[2] = watch_3;
         watchArray[3] = watch_4;
 
+
         allBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, AllActivity.class));
+                Intent intent = new Intent(MainActivity.this, AllActivity.class);
+                intent.putExtra("watchArray", watchArray);
+                startActivity(intent);
             }
         });
 

@@ -1,9 +1,12 @@
 package com.example.mobileproject;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Watch {
+public class Watch implements Parcelable {
 
     private String watch_id = "";
     private String brand = "";
@@ -13,6 +16,7 @@ public class Watch {
     private String aspect2 = "";
     private String aspect3 = "";
     private Double cost = 0.0;
+    private String image = "";
 
     public Watch(){
 
@@ -26,7 +30,35 @@ public class Watch {
         this.aspect1 = aspect1;
         this.aspect2 = aspect2;
         this.aspect3 = aspect3;
+        this.image = watch_id;
     }
+
+    protected Watch(Parcel in) {
+        watch_id = in.readString();
+        brand = in.readString();
+        model = in.readString();
+        gender = in.readString();
+        aspect1 = in.readString();
+        aspect2 = in.readString();
+        aspect3 = in.readString();
+        if (in.readByte() == 0) {
+            cost = null;
+        } else {
+            cost = in.readDouble();
+        }
+    }
+
+    public static final Creator<Watch> CREATOR = new Creator<Watch>() {
+        @Override
+        public Watch createFromParcel(Parcel in) {
+            return new Watch(in);
+        }
+
+        @Override
+        public Watch[] newArray(int size) {
+            return new Watch[size];
+        }
+    };
 
     public String getWatch_id() {
         return watch_id;
@@ -90,5 +122,35 @@ public class Watch {
 
     public void setCost(Double cost) {
         this.cost = cost;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(watch_id);
+        dest.writeString(brand);
+        dest.writeString(model);
+        dest.writeString(gender);
+        dest.writeString(aspect1);
+        dest.writeString(aspect2);
+        dest.writeString(aspect3);
+        if (cost == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(cost);
+        }
     }
 }
