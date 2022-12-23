@@ -27,104 +27,116 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/watch1"
-        android:layout_width="120dp"
-        android:layout_height="104dp"
-        android:layout_marginStart="46dp"
-        android:layout_marginEnd="91dp"
-        android:layout_marginBottom="8dp"
-        android:padding="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/cost1"
-        app:layout_constraintEnd_toStartOf="@+id/watch2"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
         android:id="@+id/watch2"
-        android:layout_width="120dp"
-        android:layout_height="104dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="128dp"
-        android:padding="4dp"
-        app:layout_constraintStart_toEndOf="@+id/watch1"
+        android:layout_width="64dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="52dp"
+        android:padding="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:srcCompat="@drawable/ga7004a_large" />
 
     <EditText
         android:id="@+id/cost1"
-        android:layout_width="134dp"
+        android:layout_width="90dp"
         android:layout_height="48dp"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="83dp"
-        android:layout_marginBottom="44dp"
-        android:autoText="false"
+        android:editable="false"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="none"
         android:padding="4dp"
         android:text="text"
-        app:layout_constraintBottom_toTopOf="@+id/watch3"
+        android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/cost2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/watch1" />
 
     <EditText
         android:id="@+id/cost3"
-        android:layout_width="134dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="128dp"
+        android:layout_width="93dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="232dp"
+        android:editable="false"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="none"
         android:padding="4dp"
         android:text="text"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/view5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/cost4"
-        android:layout_width="134dp"
+        android:layout_width="94dp"
         android:layout_height="48dp"
-        android:layout_marginStart="248dp"
-        android:layout_marginBottom="128dp"
+        android:layout_marginStart="284dp"
+        android:layout_marginBottom="232dp"
+        android:editable="false"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="none"
         android:padding="4dp"
         android:text="text"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/view5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/cost2"
-        android:layout_width="134dp"
+        android:layout_width="96dp"
         android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="40dp"
+        android:editable="false"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="none"
+        android:padding="3dp"
         android:text="text"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/watch2" />
 
     <ImageView
+        android:id="@+id/watch1"
+        android:layout_width="79dp"
+        android:layout_height="101dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="28dp"
+        android:padding="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        app:srcCompat="@drawable/ga21007a" />
+
+    <ImageView
         android:id="@+id/watch4"
-        android:layout_width="120dp"
-        android:layout_height="104dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="90dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="32dp"
-        android:padding="4dp"
+        android:padding="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/cost4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cost2"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.315"
+        app:srcCompat="@drawable/ga2200m1a_large" />
 
     <ImageView
         android:id="@+id/watch3"
-        android:layout_width="120dp"
+        android:layout_width="81dp"
         android:layout_height="104dp"
-        android:layout_marginStart="46dp"
-        android:layout_marginBottom="16dp"
-        android:padding="4dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="40dp"
+        android:padding="3dp"
         app:layout_constraintBottom_toTopOf="@+id/cost3"
         app:layout_constraintStart_toStartOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/cost1"
+        app:layout_constraintVertical_bias="0.2"
+        app:srcCompat="@drawable/gstb4001alarge" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,25 +17,6 @@ public class Watch {
     public Watch(){
 
     }
-
-    public Watch(ResultSet row) {
-        try {
-            this.watch_id = row.getString("watch_id");
-            this.brand = row.getString("brand");
-            this.model = row.getString("model");
-            this.gender = row.getString("gender");
-            this.cost = row.getDouble("cost");
-        } catch (SQLException e) {
-            System.out.println();
-        }
-    }   
-    public Watch(String brand, String model, String gender, Double cost) {
-        this.brand = brand;
-        this.model = model;
-        this.gender = gender;
-        this.cost = cost;
-
-    }
     public Watch(String watch_id, String brand, String model, String gender, Double cost, String aspect1,String aspect2,String aspect3) {
         this.watch_id = watch_id;
         this.brand = brand;

@@ -11,6 +11,8 @@ import java.io.FileNotFoundException;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static Watch[] watchArray;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,28 +22,49 @@ public class MainActivity extends AppCompatActivity {
         Button menBtn = findViewById(R.id.menBtn);
         Button womenBtn = findViewById(R.id.womenBtn);
 
-        Watch[] watchArray = new Watch[10];
+        watchArray = new Watch[10];
+//
+//
+//        try {
+//            FileManager.read();
+//            watchArray = FileManager.watchArray;
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        DatabaseHelper myDB = new DatabaseHelper(MainActivity.this);
+//        for (int i = 0; i < watchArray.length; i++) {
+//            myDB.addData(watchArray[i].getWatch_id(),
+//                    watchArray[i].getBrand(),
+//                    watchArray[i].getModel(),
+//                    watchArray[i].getGender(),
+//                    watchArray[i].getCost(),
+//                    watchArray[i].getAspect1(),
+//                    watchArray[i].getAspect2(),
+//                    watchArray[i].getAspect3()
+//            );
+//        }
 
+        Watch watch_1 = new Watch("GMAS120MF_202", "Casio", "G-Shock",
+                "Male", 130.00, "Magnetic Resistant", " " +
+                "", "200M Water Resistant");
 
-        try {
-            FileManager.read();
-            watchArray = FileManager.watchArray;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        DatabaseHelper myDB = new DatabaseHelper(MainActivity.this);
-        for (int i = 0; i < watchArray.length; i++) {
-            myDB.addData(watchArray[i].getWatch_id(),
-                    watchArray[i].getBrand(),
-                    watchArray[i].getModel(),
-                    watchArray[i].getGender(),
-                    watchArray[i].getCost(),
-                    watchArray[i].getAspect1(),
-                    watchArray[i].getAspect2(),
-                    watchArray[i].getAspect3()
-            );
+        Watch watch_2 = new Watch(" GA2100_7A", "Casio", "G-Shock",
+                "Male", 99.00, "", "Shock Resistant" +
+                "", "200M Water Resistant");
 
-        }
+        Watch watch_3 = new Watch("GA700_4A", "Casio", "G-Shock",
+                "Male", 99.00, "Water Resistant", " Shock Resistant " +
+                "", "Front-Button Super Illuminator Light");
+
+        Watch watch_4 = new Watch("GA2200M_1A", "Casio", "G-Shock",
+                "Male", 130.00, " Carbon Core Guard Case", " Shock Resistant " +
+                "", "200M Water Resistant");
+
+        watchArray[0] = watch_1;
+        watchArray[1] = watch_2;
+        watchArray[2] = watch_3;
+        watchArray[3] = watch_4;
+
         allBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -14,40 +14,40 @@ import java.util.Scanner;
 
 
 public class FileManager implements Serializable {
-    static Watch [] watchArray = new Watch[10];
+//    static Watch [] watchArray = new Watch[10];
 
 
-    public static void read() throws FileNotFoundException {
-        File f = new File("C:\\Users\\noura\\Desktop\\Uni\\MobileProject\\app\\src\\main\\java\\com\\example\\mobileproject\\data.txt");
-        Scanner sc = new Scanner(f);
-        Watch watch = new Watch();
-
-        for (int i = 0; sc.hasNextLine(); i++) {
-            String line = sc.nextLine();
-            String[] details = line.split(", ");
-            String watch_id = details[0];
-            String brand = details[1];
-            String model = details[2];
-            String gender = details[3];
-            Double cost = Double.valueOf(details[4]);
-            String aspect1 = details[5];
-            String aspect2 = details[6];
-            String aspect3 = details[7];
-
-            watch.setWatch_id(watch_id);
-            watch.setBrand(brand);
-            watch.setModel(model);
-            watch.setGender(gender);
-            watch.setCost(cost);
-            watch.setAspect1(aspect1);
-            watch.setAspect2(aspect2);
-            watch.setAspect3(aspect3);
-
-            watchArray[i] = watch;
-        }
-
-
-    }
+//    public static void read() throws FileNotFoundException {
+//        File f = new File("java/com/example/mobileproject/data.txt");
+//        Scanner sc = new Scanner(f);
+//        Watch watch = new Watch();
+//
+//        for (int i = 0; sc.hasNextLine(); i++) {
+//            String line = sc.nextLine();
+//            String[] details = line.split(", ");
+//            String watch_id = details[0];
+//            String brand = details[1];
+//            String model = details[2];
+//            String gender = details[3];
+//            Double cost = Double.valueOf(details[4]);
+//            String aspect1 = details[5];
+//            String aspect2 = details[6];
+//            String aspect3 = details[7];
+//
+//            watch.setWatch_id(watch_id);
+//            watch.setBrand(brand);
+//            watch.setModel(model);
+//            watch.setGender(gender);
+//            watch.setCost(cost);
+//            watch.setAspect1(aspect1);
+//            watch.setAspect2(aspect2);
+//            watch.setAspect3(aspect3);
+//
+//            watchArray[i] = watch;
+//        }
+//
+//
+//    }
 
 
 //    public void read(){
