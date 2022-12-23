@@ -9,6 +9,32 @@ import android.widget.Button;
 
 import java.io.FileNotFoundException;
 
+
+
+
+/*
+Shamsaldeen Tuffaha Shop - Watches
+Nour Tuffaha - 1192106
+
+Tala Dabbagh - 1200620
+
+Sojood Mafarjeh - 1181205
+
+Nour: Home activity, All watches activity, Object Parcel, SQLite (beta)
+
+Tala: Cart activity, Wishlist activity, navigation bar (beta)
+
+Sojood: Watch details activity, payment activity
+
+*Each group member's contribution is not limited to mentioned input.
+
+*Current project state is primitive and not even in the beta scheme of things; The project roadmap
+was surprisingly demanding and we were limited by our unoptimized timeline.
+
+*Next phase, the project will have a functioning database, navigation bar, every possible function
+required by a shop, and more.
+
+ */
 public class MainActivity extends AppCompatActivity {
 
     public static Watch[] watchArray;
