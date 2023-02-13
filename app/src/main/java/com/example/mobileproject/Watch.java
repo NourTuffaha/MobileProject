@@ -16,12 +16,16 @@ public class Watch implements Parcelable {
     private String aspect2 = "";
     private String aspect3 = "";
     private Double cost = 0.0;
-    private String image = "";
+    private int stock;
+    private int sold;
+    private String mainImageUrl;
 
-    public Watch(){
+
+    public Watch() {
 
     }
-    public Watch(String watch_id, String brand, String model, String gender, Double cost, String aspect1,String aspect2,String aspect3) {
+
+    public Watch(String watch_id, String brand, String model, String gender, double cost, String aspect1, String aspect2, String aspect3, int stock, int sold, String mainImageUrl) {
         this.watch_id = watch_id;
         this.brand = brand;
         this.model = model;
@@ -30,22 +34,35 @@ public class Watch implements Parcelable {
         this.aspect1 = aspect1;
         this.aspect2 = aspect2;
         this.aspect3 = aspect3;
-        this.image = watch_id;
+        this.stock = stock;
+        this.sold = sold;
+        this.mainImageUrl = mainImageUrl;
     }
+//    public Watch(String watch_id, String brand, String model, String gender, Double cost, String aspect1,String aspect2,String aspect3) {
+//        this.watch_id = watch_id;
+//        this.brand = brand;
+//        this.model = model;
+//        this.gender = gender;
+//        this.cost = cost;
+//        this.aspect1 = aspect1;
+//        this.aspect2 = aspect2;
+//        this.aspect3 = aspect3;
+//        this.image = watch_id;
+//    }
+
 
     protected Watch(Parcel in) {
         watch_id = in.readString();
         brand = in.readString();
         model = in.readString();
         gender = in.readString();
+        cost = in.readDouble();
         aspect1 = in.readString();
         aspect2 = in.readString();
         aspect3 = in.readString();
-        if (in.readByte() == 0) {
-            cost = null;
-        } else {
-            cost = in.readDouble();
-        }
+        stock = in.readInt();
+        sold = in.readInt();
+        mainImageUrl = in.readString();
     }
 
     public static final Creator<Watch> CREATOR = new Creator<Watch>() {
@@ -59,6 +76,27 @@ public class Watch implements Parcelable {
             return new Watch[size];
         }
     };
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(watch_id);
+        dest.writeString(brand);
+        dest.writeString(model);
+        dest.writeString(gender);
+        dest.writeString(String.valueOf(cost));
+        dest.writeString(aspect1);
+        dest.writeString(aspect2);
+        dest.writeString(aspect3);
+        dest.writeInt(stock);
+        dest.writeInt(sold);
+        dest.writeString(mainImageUrl);
+    }
 
     public String getWatch_id() {
         return watch_id;
@@ -124,33 +162,30 @@ public class Watch implements Parcelable {
         this.cost = cost;
     }
 
-    public String getImage() {
-        return image;
+
+    public int getStock() {
+        return stock;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public int getSold() {
+        return sold;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(watch_id);
-        dest.writeString(brand);
-        dest.writeString(model);
-        dest.writeString(gender);
-        dest.writeString(aspect1);
-        dest.writeString(aspect2);
-        dest.writeString(aspect3);
-        if (cost == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeDouble(cost);
-        }
+    public void setSold(int sold) {
+        this.sold = sold;
     }
+
+    public String getMainImageUrl() {
+        return mainImageUrl;
+    }
+
+    public void setMainImageUrl(String mainImageUrl) {
+        this.mainImageUrl = mainImageUrl;
+    }
+
+
 }
