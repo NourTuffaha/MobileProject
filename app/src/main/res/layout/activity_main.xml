@@ -65,6 +65,30 @@
         android:layout_marginTop="430dp"
         android:layout_marginEnd="143dp"
         android:backgroundTint="#EF0502"
+        android:text="Women" />
+
+    <Button
+        android:id="@+id/bagBtn"
+        android:layout_width="133dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="490dp"
+        android:layout_marginEnd="141dp"
+        android:backgroundTint="#EF0502"
+        android:text="Bag" />
+
+    <Button
+        android:id="@+id/wishlistBtn"
+        android:layout_width="133dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="555dp"
+        android:layout_marginEnd="140dp"
+        android:backgroundTint="#EF0502"
         android:text="Wishlist" />
 
     <Button
@@ -77,6 +101,6 @@
         android:layout_marginTop="369dp"
         android:layout_marginEnd="143dp"
         android:backgroundTint="#EF0502"
-        android:text="Bag" />
+        android:text="Men" />
 
 </RelativeLayout>

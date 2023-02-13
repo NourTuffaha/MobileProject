@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,10 +14,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileProject"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+        <activity
+            android:name=".FemaleActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MaleActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".WatchesActivity"
-            android:exported="false" >
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -23,7 +40,7 @@
             android:name=".CartActivity"
             android:exported="false"
             android:label="Your Cart"
-            android:parentActivityName=".DetailsActivity" >
+            android:parentActivityName=".DetailsActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -32,7 +49,7 @@
             android:name=".WishlistActivity"
             android:exported="false"
             android:label="Your Wishlist"
-            android:parentActivityName=".DetailsActivity" >
+            android:parentActivityName=".DetailsActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -41,7 +58,7 @@
             android:name=".PayActivity"
             android:exported="false"
             android:label="Payment Screen"
-            android:parentActivityName=".CartActivity" >
+            android:parentActivityName=".CartActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -50,7 +67,7 @@
             android:name=".DetailsActivity"
             android:exported="false"
             android:label="Watch Details"
-            android:parentActivityName=".AllActivity" >
+            android:parentActivityName=".AllActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -59,7 +76,7 @@
             android:name=".AllActivity"
             android:exported="false"
             android:label="All Watches"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -67,7 +84,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="Shamsaldeen Tuffaha Shop" >
+            android:label="Shamsaldeen Tuffaha Shop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

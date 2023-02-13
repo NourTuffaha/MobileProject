@@ -11,30 +11,37 @@
 
         <ImageView
             android:id="@+id/image_view"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_width="186dp"
+            android:layout_height="159dp"
             android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/text_model"
-            android:layout_width="match_parent"
+            android:layout_width="186dp"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:text="Model" />
+            android:text="Model"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 
         <TextView
             android:id="@+id/text_brand"
-            android:layout_width="match_parent"
+            android:layout_width="186dp"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:text="Brand" />
+            android:text="Brand"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         <TextView
             android:id="@+id/text_price"
-            android:layout_width="match_parent"
+            android:layout_width="186dp"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:text="Price" />
+            android:text="Price"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <TextView
+            android:id="@+id/text_gender"
+            android:layout_width="186dp"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     </LinearLayout>
 

@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -34,7 +33,7 @@ public class WatchAdapter extends RecyclerView.Adapter<WatchAdapter.WatchViewHol
         holder.textPrice.setText(String.valueOf(watch.getCost()));
 
         // Load the image using Glide library
-        Glide.with(holder.itemView.getContext())
+        GlideApp.with(holder.itemView.getContext())
                 .load(watch.getMainImageUrl())
                 .into(holder.imageView);
     }

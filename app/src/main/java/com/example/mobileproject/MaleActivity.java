@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class WatchesActivity extends AppCompatActivity {
+public class MaleActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference watchesRef = db.collection("watches");
     private List<Watch> watches = new ArrayList<>();
@@ -44,15 +44,14 @@ public class WatchesActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Watch watch = document.toObject(Watch.class);
-                        System.out.println(watch.getMainImageUrl());
 
                         watches.add(watch);
                     }
                     RecyclerView recyclerView = findViewById(R.id.recycler_view);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(WatchesActivity.this));
+                    recyclerView.setLayoutManager(new LinearLayoutManager(MaleActivity.this));
                     recyclerView.setAdapter(new WatchesAdapter(watches));
                 } else {
-                    Log.d("WatchesActivity", "Error getting documents: ", task.getException());
+                    Log.d("MaleActivity", "Error getting documents: ", task.getException());
                 }
             }
         });
@@ -104,7 +103,6 @@ public class WatchesActivity extends AppCompatActivity {
                 genderTextView = itemView.findViewById(R.id.text_gender);
                 image_view = itemView.findViewById(R.id.image_view);
 
-
             }
 
             public void bind(Watch watch) {
@@ -115,7 +113,6 @@ public class WatchesActivity extends AppCompatActivity {
                 GlideApp.with(itemView.getContext())
                         .load(watch.getMainImageUrl())
                         .into(image_view);
-
             }
         }
     }

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class WatchesActivity extends AppCompatActivity {
+public class FemaleActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference watchesRef = db.collection("watches");
     private List<Watch> watches = new ArrayList<>();
@@ -38,21 +39,20 @@ public class WatchesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_watches);
 
-        watchesRef.whereEqualTo("gender", "Male").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        watchesRef.whereEqualTo("gender", "Female").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Watch watch = document.toObject(Watch.class);
-                        System.out.println(watch.getMainImageUrl());
 
                         watches.add(watch);
                     }
                     RecyclerView recyclerView = findViewById(R.id.recycler_view);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(WatchesActivity.this));
+                    recyclerView.setLayoutManager(new LinearLayoutManager(FemaleActivity.this));
                     recyclerView.setAdapter(new WatchesAdapter(watches));
                 } else {
-                    Log.d("WatchesActivity", "Error getting documents: ", task.getException());
+                    Log.d("FemaleActivity", "Error getting documents: ", task.getException());
                 }
             }
         });
@@ -61,6 +61,7 @@ public class WatchesActivity extends AppCompatActivity {
 
 
     }
+
 
 
     private class WatchesAdapter extends RecyclerView.Adapter<WatchesAdapter.WatchHolder> {
@@ -92,7 +93,6 @@ public class WatchesActivity extends AppCompatActivity {
             private TextView nameTextView;
             private TextView brandTextView;
             private TextView priceTextView;
-            private TextView genderTextView;
             private ImageView image_view;
 
 
@@ -101,9 +101,7 @@ public class WatchesActivity extends AppCompatActivity {
                 nameTextView = itemView.findViewById(R.id.text_model);
                 brandTextView = itemView.findViewById(R.id.text_brand);
                 priceTextView = itemView.findViewById(R.id.text_price);
-                genderTextView = itemView.findViewById(R.id.text_gender);
                 image_view = itemView.findViewById(R.id.image_view);
-
 
             }
 
@@ -111,11 +109,9 @@ public class WatchesActivity extends AppCompatActivity {
                 nameTextView.setText(watch.getModel());
                 brandTextView.setText(watch.getBrand());
                 priceTextView.setText(String.valueOf(watch.getCost()));
-                genderTextView.setText(watch.getGender());
                 GlideApp.with(itemView.getContext())
                         .load(watch.getMainImageUrl())
                         .into(image_view);
-
             }
         }
     }

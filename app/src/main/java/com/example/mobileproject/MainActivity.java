@@ -61,8 +61,6 @@ required by a shop, and more.
 public class MainActivity extends AppCompatActivity {
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,9 +80,38 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         Button menBtn = findViewById(R.id.menBtn);
-            Button womenBtn = findViewById(R.id.womenBtn);
 
+        menBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WatchesActivity.class);
+                startActivity(intent);
+            }
+        });
+        Button womenBtn = findViewById(R.id.womenBtn);
+        womenBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WatchesActivity.class);
+                startActivity(intent);
+            }
+        });
+        Button bagbtn = findViewById(R.id.bagBtn);
+        bagbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
+        Button wishlistbtn = findViewById(R.id.wishlistBtn);
 
-
-        }
+        wishlistbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WishlistActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+}
