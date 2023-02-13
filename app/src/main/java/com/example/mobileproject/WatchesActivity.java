@@ -93,7 +93,7 @@ public class WatchesActivity extends AppCompatActivity {
             private TextView brandTextView;
             private TextView priceTextView;
             private TextView genderTextView;
-            private ImageView imageView;
+            public ImageView imageView;
 
 
             public WatchHolder(@NonNull View itemView) {
@@ -104,7 +104,19 @@ public class WatchesActivity extends AppCompatActivity {
                 genderTextView = itemView.findViewById(R.id.text_gender);
                 imageView = itemView.findViewById(R.id.image_view);
 
+                // Add OnClickListener to the ImageView
+                imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Get the watch at the current position
+                        Watch watch = watches.get(getAdapterPosition());
 
+                        // Start the next activity and pass the watch object to it
+                        Intent intent = new Intent(v.getContext(), DetailsActivity.class);
+                        intent.putExtra("watch", watch);
+                        v.getContext().startActivity(intent);
+                    }
+                });
             }
 
             public void bind(Watch watch) {
@@ -114,10 +126,12 @@ public class WatchesActivity extends AppCompatActivity {
                 genderTextView.setText(watch.getGender());
                 Glide.with(itemView.getContext())
                         .load(watch.getMainImageUrl())
+                        .fitCenter()
                         .into(imageView);
 
             }
         }
+
     }
 }
 

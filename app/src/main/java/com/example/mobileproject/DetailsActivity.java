@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 public class DetailsActivity extends AppCompatActivity {
 
 
@@ -42,29 +44,36 @@ public class DetailsActivity extends AppCompatActivity {
         name = findViewById(R.id.nameWatch1);
         price = findViewById(R.id.priceWatch1);
         details = findViewById(R.id.detailsWatch1);
-//        String image = "R.drawable."+ watch.getImage();
         name.setText(watch.getBrand());
         price.setText(String.valueOf(watch.getCost()));
+        Glide.with(this)
+                .load(watch.getMainImageUrl())
+
+                .into(watchImage);
         details.setText(watch.getAspect1() + "\n" +
                 watch.getAspect2() + "\n" +
                 watch.getAspect3() + "\n"
+
+
         );
 
-        if (watch.getWatch_id() == "ga7004a_large")
-            watchImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ga7004a_large));
 
 
-        else if (watch.getWatch_id() == "ga2200m1a_large")
-            watchImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ga2200m1a_large));
-
-
-        else if (watch.getWatch_id() == "ga21007a")
-            watchImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ga21007a));
-
-        else if (watch.getWatch_id() == "gstb4001alarge")
-            watchImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.gstb4001alarge));
-        else
-            watchImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.gstb4001alarge));
+//        if (watch.getWatch_id() == "ga7004a_large")
+//            watchImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ga7004a_large));
+//
+//
+//        else if (watch.getWatch_id() == "ga2200m1a_large")
+//            watchImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ga2200m1a_large));
+//
+//
+//        else if (watch.getWatch_id() == "ga21007a")
+//            watchImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ga21007a));
+//
+//        else if (watch.getWatch_id() == "gstb4001alarge")
+//            watchImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.gstb4001alarge));
+//        else
+//            watchImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.gstb4001alarge));
 
 
 
