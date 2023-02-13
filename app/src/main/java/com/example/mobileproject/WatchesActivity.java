@@ -7,32 +7,59 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class WatchesActivity extends AppCompatActivity {
-    private List<Watch> watches;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private CollectionReference watchesRef = db.collection("watches");
+    private List<Watch> watches = new ArrayList<>();
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_watches);
 
-        Intent intent = getIntent();
-        if (intent.hasExtra("watches")) {
-            watches = intent.getParcelableArrayListExtra("watches");
-        }
-        // Show the watches in a RecyclerView or any other method you prefer.
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new WatchesAdapter(watches));
+        watchesRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Watch watch = document.toObject(Watch.class);
+
+                        watches.add(watch);
+                    }
+                    RecyclerView recyclerView = findViewById(R.id.recycler_view);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(WatchesActivity.this));
+                    recyclerView.setAdapter(new WatchesAdapter(watches));
+                } else {
+                    Log.d("WatchesActivity", "Error getting documents: ", task.getException());
+                }
+            }
+        });
+
+
+
 
     }
+
 
     private class WatchesAdapter extends RecyclerView.Adapter<WatchesAdapter.WatchHolder> {
         private List<Watch> watches;
@@ -78,5 +105,5 @@ public class WatchesActivity extends AppCompatActivity {
             }
         }
     }
-    }
+}
 

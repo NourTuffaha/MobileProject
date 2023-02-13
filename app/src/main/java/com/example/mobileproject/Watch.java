@@ -51,6 +51,23 @@ public class Watch implements Parcelable {
 //    }
 
 
+    @Override
+    public String toString() {
+        return "Watch{" +
+                "watch_id='" + watch_id + '\'' +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", gender='" + gender + '\'' +
+                ", aspect1='" + aspect1 + '\'' +
+                ", aspect2='" + aspect2 + '\'' +
+                ", aspect3='" + aspect3 + '\'' +
+                ", cost=" + cost +
+                ", stock=" + stock +
+                ", sold=" + sold +
+                ", mainImageUrl='" + mainImageUrl + '\'' +
+                '}';
+    }
+
     protected Watch(Parcel in) {
         watch_id = in.readString();
         brand = in.readString();

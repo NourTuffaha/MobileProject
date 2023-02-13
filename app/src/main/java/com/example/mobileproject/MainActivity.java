@@ -61,9 +61,7 @@ required by a shop, and more.
 public class MainActivity extends AppCompatActivity {
 
 
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference watchesRef = db.collection("watches");
-    private List<Watch> watches = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,23 +72,15 @@ public class MainActivity extends AppCompatActivity {
         ////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////
 
-        watchesRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
+        Button allBtn = findViewById(R.id.allBtn);
+        allBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Watch watch = document.toObject(Watch.class);
-                        watches.add(watch);
-                    }
-                    Intent intent = new Intent(MainActivity.this, WatchesActivity.class);
-                    intent.putParcelableArrayListExtra("watches", (ArrayList<Watch>) watches);
-                    startActivity(intent);
-                } else {
-                    Log.d("MainActivity", "Error getting documents: ", task.getException());
-                }
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WatchesActivity.class);
+                startActivity(intent);
             }
         });
-
         Button menBtn = findViewById(R.id.menBtn);
             Button womenBtn = findViewById(R.id.womenBtn);
 
