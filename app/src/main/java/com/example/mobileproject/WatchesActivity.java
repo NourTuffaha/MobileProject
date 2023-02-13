@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
@@ -44,7 +45,6 @@ public class WatchesActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Watch watch = document.toObject(Watch.class);
-                        System.out.println(watch.getMainImageUrl());
 
                         watches.add(watch);
                     }
@@ -93,7 +93,7 @@ public class WatchesActivity extends AppCompatActivity {
             private TextView brandTextView;
             private TextView priceTextView;
             private TextView genderTextView;
-            private ImageView image_view;
+            private ImageView imageView;
 
 
             public WatchHolder(@NonNull View itemView) {
@@ -102,7 +102,7 @@ public class WatchesActivity extends AppCompatActivity {
                 brandTextView = itemView.findViewById(R.id.text_brand);
                 priceTextView = itemView.findViewById(R.id.text_price);
                 genderTextView = itemView.findViewById(R.id.text_gender);
-                image_view = itemView.findViewById(R.id.image_view);
+                imageView = itemView.findViewById(R.id.image_view);
 
 
             }
@@ -112,9 +112,9 @@ public class WatchesActivity extends AppCompatActivity {
                 brandTextView.setText(watch.getBrand());
                 priceTextView.setText(String.valueOf(watch.getCost()));
                 genderTextView.setText(watch.getGender());
-                GlideApp.with(itemView.getContext())
+                Glide.with(itemView.getContext())
                         .load(watch.getMainImageUrl())
-                        .into(image_view);
+                        .into(imageView);
 
             }
         }
