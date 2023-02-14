@@ -57,8 +57,6 @@ public class CartActivity extends AppCompatActivity implements AdapterView.OnIte
         checkoutBtn = findViewById(R.id.checkButton);
         //     removeBtn = findViewById(R.id.removeFromCartImg);
 
-//        File img= null;
-//        Watch watch = new Watch(12, "casio",15.00, "casio", "2021","M",img);
 
         checkoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override

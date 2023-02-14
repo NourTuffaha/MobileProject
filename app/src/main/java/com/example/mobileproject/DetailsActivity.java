@@ -37,7 +37,6 @@ public class DetailsActivity extends AppCompatActivity {
         imageView = findViewById(R.id.watchImage);
 
         goToBag = findViewById(R.id.goToBag);
-        goToWish = findViewById(R.id.goToWish);
         name = findViewById(R.id.nameWatch1);
         price = findViewById(R.id.priceWatch1);
         details = findViewById(R.id.detailsWatch1);
@@ -66,29 +65,11 @@ public class DetailsActivity extends AppCompatActivity {
                 v.getContext().startActivity(intent);
             }
         });
-        goToWish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Get the watch at the current position
-
-                // Start the next activity and pass the watch object to it
-                Intent intent = new Intent(v.getContext(), WishlistActivity.class);
-//                        System.out.println(watch.getMainImageUrl());
-                intent.putExtra("watch", watch);
-
-                v.getContext().startActivity(intent);
-            }
-        });
-    }
-
-
-    public void btnAddToBagWatch1(View view) {
-
-        Intent sendingIntent = new Intent(this, CartActivity.class);
-        sendingIntent.putExtra("watch", watch);
-        startActivity(sendingIntent);
 
     }
+
+
+
 
 
     public void heartOnClick(View view) {

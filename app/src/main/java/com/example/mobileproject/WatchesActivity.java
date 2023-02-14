@@ -23,7 +23,6 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class WatchesActivity extends AppCompatActivity {
@@ -39,7 +38,7 @@ public class WatchesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_watches);
 
-        watchesRef.whereEqualTo("gender", "Male").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        watchesRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
@@ -104,16 +103,12 @@ public class WatchesActivity extends AppCompatActivity {
                 genderTextView = itemView.findViewById(R.id.text_gender);
                 imageView = itemView.findViewById(R.id.image_view);
 
-                // Add OnClickListener to the ImageView
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        // Get the watch at the current position
                         Watch watch = watches.get(getAdapterPosition());
 
-                        // Start the next activity and pass the watch object to it
                         Intent intent = new Intent(v.getContext(), DetailsActivity.class);
-//                        System.out.println(watch.getMainImageUrl());
                         intent.putExtra("watch", watch);
 
                         v.getContext().startActivity(intent);

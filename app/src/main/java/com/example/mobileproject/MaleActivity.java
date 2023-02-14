@@ -36,7 +36,7 @@ public class MaleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_watches);
+        setContentView(R.layout.activity_male);
 
         watchesRef.whereEqualTo("gender", "Male").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override

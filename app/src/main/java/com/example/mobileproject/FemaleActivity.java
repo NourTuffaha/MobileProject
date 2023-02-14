@@ -37,7 +37,7 @@ public class FemaleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_watches);
+        setContentView(R.layout.activity_female);
 
         watchesRef.whereEqualTo("gender", "Female").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -48,7 +48,7 @@ public class FemaleActivity extends AppCompatActivity {
 
                         watches.add(watch);
                     }
-                    RecyclerView recyclerView = findViewById(R.id.recycler_view);
+                    RecyclerView recyclerView = findViewById(R.id.recycler_view_female);
                     recyclerView.setLayoutManager(new LinearLayoutManager(FemaleActivity.this));
                     recyclerView.setAdapter(new WatchesAdapter(watches));
                 } else {
