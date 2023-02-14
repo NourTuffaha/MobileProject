@@ -15,14 +15,14 @@
         android:layout_alignParentTop="true"
         android:background="#DDDDDD" />
 
-    <View
-        android:id="@+id/view2"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="677dp"
-        android:background="#EF0502" />
+<!--    <View-->
+<!--        android:id="@+id/view2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="54dp"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginTop="677dp"-->
+<!--        android:background="#EF0502" />-->
 
     <View
         android:id="@+id/view3"
@@ -102,5 +102,59 @@
         android:layout_marginEnd="143dp"
         android:backgroundTint="#EF0502"
         android:text="Men" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
+
+        <ImageView
+            android:id="@+id/goToBag"
+            android:onClick="btnShopOnClick"
+            android:layout_width="48dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="700dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.127"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
+
+
+        <ImageView
+            android:id="@+id/home"
+            android:layout_width="48dp"
+            android:layout_height="30dp"
+            android:onClick="btnHomeOnClick"
+            android:layout_marginLeft="76dp"
+            android:layout_marginTop="700dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.127"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_baseline_home_24" />
+
+        <ImageView
+            android:id="@+id/watchs"
+            android:layout_width="48dp"
+            android:layout_height="30dp"
+            android:onClick="btnWatchOClick"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="700dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.127"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_baseline_watch_24" />
+
+
+    </LinearLayout>
 
 </RelativeLayout>
