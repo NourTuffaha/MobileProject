@@ -31,6 +31,8 @@ public class PayActivity extends AppCompatActivity {
         edtGmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
         edtCreditCard = findViewById(R.id.edtCardNum);
+        checkInstance(savedInstanceState);
+
     }
 
     public void btnOnclickPayment(View view) {
@@ -41,5 +43,39 @@ public class PayActivity extends AppCompatActivity {
         String str = gmail + password + creditCardNum;
         Toast.makeText(this, "The payment operation successful", Toast.LENGTH_SHORT).show();
 
+    }
+
+    private void checkInstance(Bundle savedInstanceState) {
+        if(savedInstanceState != null){
+            gmail= savedInstanceState.getString("GMAIL");
+            password= savedInstanceState.getString("PASSWORD");
+            creditCardNum= savedInstanceState.getString("CARDNUM");
+        }
+    }
+
+    protected void onSavedInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
+        outState.putString("GMAIL", gmail);
+        outState.putString("PASSWORD", password);
+        outState.putString("CARDNUM", creditCardNum);
+
+
+    }
+
+
+    public void btnHomeOnClick(View view) {
+        Intent sendingIntent = new Intent(this, MainActivity.class);
+        startActivity(sendingIntent);
+
+    }
+
+    public void btnWatchOClick(View view) {
+        Intent sendingIntent = new Intent(this, WatchesActivity.class);
+        startActivity(sendingIntent);
+    }
+
+    public void btnShopOnClick(View view) {
+        Intent sendingIntent = new Intent(this, CartActivity.class);
+        startActivity(sendingIntent);
     }
 }

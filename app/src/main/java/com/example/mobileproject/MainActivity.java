@@ -114,4 +114,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+    public void btnHomeOnClick(View view) {
+    }
+
+    public void btnWatchOClick(View view) {
+        Intent sendingIntent = new Intent(this, WatchesActivity.class);
+        startActivity(sendingIntent);
+    }
+
+    public void btnShopOnClick(View view) {
+        Intent sendingIntent = new Intent(this, CartActivity.class);
+        startActivity(sendingIntent);
+    }
 }

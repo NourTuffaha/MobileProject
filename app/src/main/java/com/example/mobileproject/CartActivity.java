@@ -24,7 +24,7 @@ public class CartActivity extends AppCompatActivity implements AdapterView.OnIte
     private TextView bagItemListTextView;
     private Button checkoutBtn;
     private Button removeBtn;
-    private Spinner spinner;
+    //private Spinner spinner;
 
     private double totalCost = 0.0;
 
@@ -41,11 +41,11 @@ public class CartActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
-        spinner = findViewById(R.id.spinner);
+        //spinner = findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.locations, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+        //spinner.setAdapter(adapter);
+        //spinner.setOnItemSelectedListener(this);
         initData();
         initRecyclerView();
 
@@ -105,5 +105,21 @@ public class CartActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public void btnHomeOnClick(View view) {
+        Intent sendingIntent = new Intent(this, MainActivity.class);
+        startActivity(sendingIntent);
+
+    }
+
+    public void btnWatchOClick(View view) {
+        Intent sendingIntent = new Intent(this, WatchesActivity.class);
+        startActivity(sendingIntent);
+    }
+
+    public void btnShopOnClick(View view) {
+        Intent sendingIntent = new Intent(this, CartActivity.class);
+        startActivity(sendingIntent);
     }
 }
