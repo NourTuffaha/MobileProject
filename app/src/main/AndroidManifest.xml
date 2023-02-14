@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:theme="@style/AppTheme"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,7 +16,6 @@
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MobileProject"
         tools:targetApi="31">
         <activity
             android:name=".FemaleActivity"
@@ -26,13 +26,6 @@
         </activity>
         <activity
             android:name=".MaleActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".WatchesActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -69,13 +62,13 @@
             android:name=".DetailsActivity"
             android:exported="false"
             android:label="Watch Details"
-            android:parentActivityName=".AllActivity">
+            android:parentActivityName=".WatchesActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AllActivity"
+            android:name=".WatchesActivity"
             android:exported="false"
             android:label="All Watches"
             android:parentActivityName=".MainActivity">

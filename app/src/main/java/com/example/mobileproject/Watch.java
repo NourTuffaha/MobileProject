@@ -18,7 +18,7 @@ public class Watch implements Parcelable {
     private Double cost = 0.0;
     private int stock;
     private int sold;
-    private String mainImageUrl;
+    private String mainImageUrl ="";
 
 
     public Watch() {
@@ -106,7 +106,7 @@ public class Watch implements Parcelable {
         dest.writeString(brand);
         dest.writeString(model);
         dest.writeString(gender);
-        dest.writeString(String.valueOf(cost));
+        dest.writeDouble(cost);
         dest.writeString(aspect1);
         dest.writeString(aspect2);
         dest.writeString(aspect3);

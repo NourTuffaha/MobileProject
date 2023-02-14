@@ -1,12 +1,10 @@
 package com.example.mobileproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,7 +21,7 @@ public class DetailsActivity extends AppCompatActivity {
     private ImageView goToBag;
     private ImageView goToWish;
     private Integer tester = 0;
-    private ImageView watchImage;
+    private ImageView imageView;
 
 
     Watch watch = new Watch();
@@ -35,65 +33,53 @@ public class DetailsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         watch = intent.getParcelableExtra("watch");
-
         heartImg = findViewById(R.id.heart);
-        watchImage = findViewById(R.id.watchImage);
+        imageView = findViewById(R.id.watchImage);
 
         goToBag = findViewById(R.id.goToBag);
         goToWish = findViewById(R.id.goToWish);
         name = findViewById(R.id.nameWatch1);
         price = findViewById(R.id.priceWatch1);
         details = findViewById(R.id.detailsWatch1);
-        name.setText(watch.getBrand());
+        name.setText(watch.getModel());
         price.setText(String.valueOf(watch.getCost()));
+        details.setText(String.format("%s\n%s\n%s\n", watch.getAspect1(), watch.getAspect2(), watch.getAspect3()));
+        imageView = findViewById(R.id.watchImage);
+
+
         Glide.with(this)
                 .load(watch.getMainImageUrl())
-
-                .into(watchImage);
-        details.setText(watch.getAspect1() + "\n" +
-                watch.getAspect2() + "\n" +
-                watch.getAspect3() + "\n"
-
-
-        );
-
-
-
-//        if (watch.getWatch_id() == "ga7004a_large")
-//            watchImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ga7004a_large));
-//
-//
-//        else if (watch.getWatch_id() == "ga2200m1a_large")
-//            watchImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ga2200m1a_large));
-//
-//
-//        else if (watch.getWatch_id() == "ga21007a")
-//            watchImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ga21007a));
-//
-//        else if (watch.getWatch_id() == "gstb4001alarge")
-//            watchImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.gstb4001alarge));
-//        else
-//            watchImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.gstb4001alarge));
+                .into(imageView);
 
 
 
         goToBag.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailsActivity.this, CartActivity.class);
-                startActivity(intent);
+                // Get the watch at the current position
+
+                // Start the next activity and pass the watch object to it
+                Intent intent = new Intent(v.getContext(), CartActivity.class);
+//                        System.out.println(watch.getMainImageUrl());
+                intent.putExtra("watch", watch);
+
+                v.getContext().startActivity(intent);
             }
         });
         goToWish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailsActivity.this,WishlistActivity.class);
-                startActivity(intent);
+                // Get the watch at the current position
+
+                // Start the next activity and pass the watch object to it
+                Intent intent = new Intent(v.getContext(), WishlistActivity.class);
+//                        System.out.println(watch.getMainImageUrl());
+                intent.putExtra("watch", watch);
+
+                v.getContext().startActivity(intent);
             }
         });
     }
-
-
 
 
     public void btnAddToBagWatch1(View view) {
@@ -120,7 +106,6 @@ public class DetailsActivity extends AppCompatActivity {
             Intent sendingIntent = new Intent(this, WishlistActivity.class);
             sendingIntent.putExtra("watch", watch);
             startActivity(sendingIntent);
-
 
 
         } else if (tester == 1) {

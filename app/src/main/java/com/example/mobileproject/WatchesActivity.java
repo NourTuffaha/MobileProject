@@ -113,7 +113,9 @@ public class WatchesActivity extends AppCompatActivity {
 
                         // Start the next activity and pass the watch object to it
                         Intent intent = new Intent(v.getContext(), DetailsActivity.class);
+//                        System.out.println(watch.getMainImageUrl());
                         intent.putExtra("watch", watch);
+
                         v.getContext().startActivity(intent);
                     }
                 });
